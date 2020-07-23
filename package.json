@@ -1,0 +1,26 @@
+{
+  "name": "github-readme-generator",
+  "version": "0.0.1",
+  "description": "Github Readme.md generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mc4506/github-readme-generator.git"
+  },
+  "keywords": [
+    "readme",
+    "github"
+  ],
+  "author": "mc4506",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mc4506/github-readme-generator/issues"
+  },
+  "homepage": "https://github.com/mc4506/github-readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
