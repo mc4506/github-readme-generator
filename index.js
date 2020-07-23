@@ -8,32 +8,32 @@ const questions = [
     {
         type: "input",
         message: "What is the title of this project?",
-        name: "title"
+        name: "title",
     },
     {
         type: "input",
+        message: "Enter Github repo name.",
+        name: "repo",
+    },
+    {
+        type: "editor",
         message: "Enter a description for this project.",
-        name: "description"
-    },
-    {
-        type: "input",
-        message: "What is the objective of this app?",
-        name: "objective"
+        name: "description",
     },
     {
         type: "input",
         message: "How do you install this project?",
-        name: "installation" 
+        name: "installation",
     },
     {
         type: "input",
         message: "Provide instructions and examples for use of this project",
-        name: "usage"
+        name: "usage",
     },
     {
         type: "confirm",
         message: "Are there any images you wish to include in the README?",
-        name: "includeImage"
+        name: "includeImage",
     },
     {
         type: "input",
@@ -77,7 +77,7 @@ const questions = [
         name: "email",
         validate: function(input){
             if (input.indexOf('@')>0){
-                if(input.indexOf('.', input.indexOf('@')+2)>0){
+                if(input.indexOf('.', input.indexOf('@')+2)>=0){
                     return true;
                 }
             }
@@ -88,4 +88,6 @@ const questions = [
 
 inquirer.prompt(questions).then(function(response){
     console.log(response);
+    const readme = generateREADME.generateREADME(response);
+    console.log(readme);
 })
