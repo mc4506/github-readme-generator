@@ -15,9 +15,10 @@ const response = {
 
 
 const generateREADME = function (obj) {
+    //TODO: Include a TOC
     const readme = {
         title : `# ${obj.title}\n\n`,
-        projectLink : `[Project Link](${obj.username}.github.io/${obj.repo}\n\n`,
+        projectLink : `[Project Link](https://${obj.username}.github.io/${obj.repo}\n\n)`,
         description : '## Description\n\n' + obj.description + '\n\n',
         installation : '## Installation\n\n' + obj.installation + '\n\n',
         usage : '## Usage\n\n' + obj.usage + '\n\n',
@@ -29,10 +30,12 @@ const generateREADME = function (obj) {
         },
         contributors : '## Credits\n\n' + obj.contributors + '\n\n',
         license : '## License\n\n' + obj.license + '\n\n',
-        tests : '## Tests\n\n' +obj.tests + '\n\n',
+        tests : '## Tests\n\n' +'\n```\n' + obj.tests+'\n```' + '\n\n',
         questions : '## Questions\n\n' + `Submit your questions to [${obj.username}](mailto:${obj.email})`,
     };
-    return readme;
+    readme.includeImage();
+    let readmeStr = readme.title.concat(readme.projectLink, readme.description, readme.installation, readme.usage, readme.contributors, readme.license, readme.tests, readme.questions);
+    return readmeStr;
 }
 
 module.exports = {

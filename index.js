@@ -2,7 +2,11 @@ const inquirer = require('inquirer');
 const generateREADME = require('./modules/generateREADME.js');
 const fs = require('fs');
 
-console.log("This is a README.md generator for your Github repo.\nPlease follow the prompts to generate a professional README that you can add to your project!\n");
+console.log("===================================================");
+console.log("This is a README.md generator for your Github repo.");
+console.log("Please follow the prompts to generate a markdown");
+console.log("that you can add to your project!");
+console.log("===================================================\n\n");
 
 const questions = [
     {
@@ -51,6 +55,7 @@ const questions = [
         type: "input",
         message: "Enter names of contributors to this project.",
         name: "contributors",
+        default: "none",
     },
     {
         type: "input",
@@ -90,4 +95,8 @@ inquirer.prompt(questions).then(function(response){
     console.log(response);
     const readme = generateREADME.generateREADME(response);
     console.log(readme);
+    fs.writeFile('README.md',readme, 'utf8', (error)=>{
+        if (error) return console.log(error);
+        console.log('File saved...');
+    })
 })
