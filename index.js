@@ -78,6 +78,11 @@ const questions = [
         when: response => (response.sections.indexOf("License") >= 0) ? true : false,
     },
     {
+        type: "confirm",
+        message: "Is there a deployed website for your project?",
+        name: "website",
+    },
+    {
         type: "input",
         message: "Enter your Github username",
         name: "username",
@@ -102,7 +107,7 @@ const questions = [
 inquirer.prompt(questions).then(function(response){
     // console.log(response);
     const readme = generateREADME.generateREADME(response);
-    console.log(readme);
+    // console.log(readme);
     fs.writeFile('README.md',readme, 'utf8', (error)=>{
         if (error) return console.log(error);
         console.log('File saved...');

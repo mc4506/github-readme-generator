@@ -1,7 +1,5 @@
 # README.md Generator
 
-<https://mc4506.github.io/github-readme-generator>
-
 ## Description
 
 This is an easy to use github README.md generator using Inquirer.js.
@@ -17,11 +15,11 @@ A markdown file will be automatically generated based on user responses. Feel fr
 
 ## Installation
 
-Clone this repo to run onyour machine using Node.js
+Clone this repo to run on your machine using Node.js
 
 ## Usage
 
-Follow the onscreen prompts
+Follow the on screen prompts.
 
 ![README.md Generator](./images/image.png)
 
@@ -31,4 +29,4 @@ MIT
 
 ## Questions
 
-Submit your questions to [mc4506](mailto:mike4506@gmail.com)
+Contact [mc4506](mailto:mike4506@gmail.com)

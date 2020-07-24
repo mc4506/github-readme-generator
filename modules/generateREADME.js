@@ -3,6 +3,9 @@ const generateREADME = function (obj) {
         title : `# ${obj.title}\n\n`,
         projectLink : `<https://${obj.username}.github.io/${obj.repo}>\n\n`,
         description : '## Description\n\n' + obj.description + '\n\n',
+        includeLink : function(){
+            if(obj.website) this.description += `Deployed Site: ${this.projectLink}\n\n`;
+        },
         toc : '## Table of Contents\n\n',
         writeTOC : function(){ 
             obj.sections.forEach(element => {
@@ -21,15 +24,17 @@ const generateREADME = function (obj) {
         credits : '## Credits\n\n' + obj.credits + '\n\n',
         license : '## License\n\n' + obj.license + '\n\n',
         tests : '## Tests\n\n' +'\n```\n' + obj.tests+'\n```' + '\n\n',
-        questions : '## Questions\n\n' + `Submit your questions to [${obj.username}](mailto:${obj.email})`,
+        questions : '## Questions\n\n' + `Contact [${obj.username}](mailto:${obj.email})`,
     };
+
+    readme.includeLink();
     readme.writeTOC();
     readme.includeImage();
 
     // Assemble Readme into a string
-    let readmeStr = readme.title.concat(readme.projectLink, readme.description, readme.toc);
-    
-    // Include sections in README based on user selection
+    let readmeStr = readme.title.concat(readme.description, readme.toc);
+
+    // Include sections in Readme String based on user selection
     obj.sections.forEach(element => {
         let key = element.toLowerCase();
         if(readme.hasOwnProperty(key)){
