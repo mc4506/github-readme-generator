@@ -25,42 +25,49 @@ const questions = [
         name: "description",
     },
     {
+        type: "checkbox",
+        message: "Select the Sections you wish to incude in the README.md",
+        name: "sections",
+        choices: ["Installation", "Usage", "Credits", "License", "Tests"],
+        default: ["Installation", "Usage", "License"]
+    },
+    {
         type: "input",
         message: "How do you install this project?",
         name: "installation",
+        when: response => (response.sections.indexOf("Installation") >= 0) ? true : false
     },
     {
         type: "input",
         message: "Provide instructions and examples for use of this project",
         name: "usage",
+        when: response => (response.sections.indexOf("Usage") >= 0) ? true : false,
     },
     {
         type: "confirm",
         message: "Are there any images you wish to include in the README?",
         name: "includeImage",
+        when: response => (response.sections.indexOf("Usage") >= 0) ? true : false,
     },
     {
         type: "input",
         message: "Enter the path of the image.",
         name: "imagePath",
-        when: (response) => response.includeImage,
-        validate: function(path){
-            if(path.indexOf('./')===0){
-                return true;
-            }
-            return 'Enter a valid path (beginning with ./)';
-        },
+        when: response => (response.includeImage && response.sections.indexOf("Usage") >= 0),
+        validate: path => (path.indexOf('./')===0) ? true : 'Enter a valid path (beginning with ./)',
     },
     {
         type: "input",
         message: "Enter names of contributors to this project.",
-        name: "contributors",
+        name: "credits",
         default: "none",
+        when: response => (response.sections.indexOf("Credits") >= 0) ? true : false,
     },
     {
         type: "input",
         message: "Enter test case code blocks",
         name: "tests",
+        when: response => (response.sections.indexOf("Tests") >= 0) ? true : false,
     },
     {
         type: "list",
@@ -68,6 +75,7 @@ const questions = [
         choices: ["MIT", "ISC", "GNU", "none"],
         default: 0,
         name: "license",
+        when: response => (response.sections.indexOf("License") >= 0) ? true : false,
     },
     {
         type: "input",
@@ -80,7 +88,7 @@ const questions = [
         message: "Enter your email address",
         default: "mike4506@gmail.com",
         name: "email",
-        validate: function(input){
+        validate: input => {
             if (input.indexOf('@')>0){
                 if(input.indexOf('.', input.indexOf('@')+2)>=0){
                     return true;
@@ -92,7 +100,7 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then(function(response){
-    console.log(response);
+    // console.log(response);
     const readme = generateREADME.generateREADME(response);
     console.log(readme);
     fs.writeFile('README.md',readme, 'utf8', (error)=>{
