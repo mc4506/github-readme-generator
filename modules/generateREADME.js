@@ -18,7 +18,7 @@ const generateREADME = function (obj) {
     //TODO: Include a TOC
     const readme = {
         title : `# ${obj.title}\n\n`,
-        projectLink : `[Project Link](https://${obj.username}.github.io/${obj.repo}\n\n)`,
+        projectLink : `[Project Link](https://${obj.username}.github.io/${obj.repo})\n\n`,
         description : '## Description\n\n' + obj.description + '\n\n',
         installation : '## Installation\n\n' + obj.installation + '\n\n',
         usage : '## Usage\n\n' + obj.usage + '\n\n',
