@@ -25,7 +25,7 @@ Follow the on screen prompts.
 
 ## License
 
-MIT
+MIT License ![https://img.shields.io/github/license/mc4506/github-readme-generator](https://img.shields.io/github/license/mc4506/github-readme-generator)
 
 ## Questions
 
