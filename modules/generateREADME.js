@@ -22,7 +22,7 @@ const generateREADME = (obj) => {
             }
         },
         credits : '## Credits\n\n' + obj.credits + '\n\n',
-        license : '## License ![https://img.shields.io/github/license/mc4506/github-readme-generator](https://img.shields.io/github/license/mc4506/github-readme-generator)\n\n' 
+        license : `## License ![https://img.shields.io/github/license/${obj.username}/${obj.repo}](https://img.shields.io/github/license/${obj.username}/${obj.repo})\n\n` 
                     + 'Licensed under ' + obj.license + ' License.\n\n',
         tests : '## Tests\n' +'\n```\n' + obj.tests+'\n```' + '\n\n',
         questions : '## Questions\n\n' + `Contact [${obj.username}](mailto:${obj.email})`,
