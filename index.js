@@ -108,7 +108,7 @@ inquirer.prompt(questions).then(function(response){
     // console.log(response);
     const readme = generateREADME.generateREADME(response);
     // console.log(readme);
-    fs.writeFile('README.md',readme, 'utf8', (error)=>{
+    fs.writeFile('READMEtest.md',readme, 'utf8', (error)=>{
         if (error) return console.log(error);
         console.log('File saved...');
     })

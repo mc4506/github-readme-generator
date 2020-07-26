@@ -1,8 +1,8 @@
-const generateREADME = function (obj) {
+const generateREADME = (obj) => {
     const readme = {
         title : `# ${obj.title}\n\n`,
-        projectLink : `<https://${obj.username}.github.io/${obj.repo}>\n\n`,
-        description : '## Description\n\n' + obj.description + '\n\n',
+        projectLink : `<https://${obj.username}.github.io/${obj.repo}>`,
+        description : '## Description\n\n' + obj.description + '\n',
         includeLink : function(){
             if(obj.website) this.description += `Deployed Site: ${this.projectLink}\n\n`;
         },
@@ -22,8 +22,8 @@ const generateREADME = function (obj) {
             }
         },
         credits : '## Credits\n\n' + obj.credits + '\n\n',
-        license : '## License\n\n' + obj.license + '\n\n',
-        tests : '## Tests\n\n' +'\n```\n' + obj.tests+'\n```' + '\n\n',
+        license : '## License\n\n' + 'Licensed under ' + obj.license + ' License.\n\n',
+        tests : '## Tests\n' +'\n```\n' + obj.tests+'\n```' + '\n\n',
         questions : '## Questions\n\n' + `Contact [${obj.username}](mailto:${obj.email})`,
     };
 
