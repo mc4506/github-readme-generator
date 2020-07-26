@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/mc4506/github-readme-generator#readme",
   "dependencies": {
-    "badge-maker": "^3.2.0",
     "inquirer": "^7.3.3"
   }
 }
