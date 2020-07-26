@@ -23,9 +23,9 @@ Follow the on screen prompts.
 
 ![README.md Generator](./images/image.png)
 
-## License
+## License ![https://img.shields.io/github/license/mc4506/github-readme-generator](https://img.shields.io/github/license/mc4506/github-readme-generator)
 
-MIT License ![https://img.shields.io/github/license/mc4506/github-readme-generator](https://img.shields.io/github/license/mc4506/github-readme-generator)
+MIT License 
 
 ## Questions
 
