@@ -39,7 +39,7 @@ const questions = [
     },
     {
         type: "input",
-        message: "Provide instructions and examples for use of this project",
+        message: "Provide instructions and examples for use of this project.",
         name: "usage",
         when: response => (response.sections.indexOf("Usage") >= 0) ? true : false,
     },
@@ -65,7 +65,7 @@ const questions = [
     },
     {
         type: "input",
-        message: "Enter test case code blocks",
+        message: "Enter test case code blocks.",
         name: "tests",
         when: response => (response.sections.indexOf("Tests") >= 0) ? true : false,
     },
@@ -84,13 +84,13 @@ const questions = [
     },
     {
         type: "input",
-        message: "Enter your Github username",
+        message: "Enter your Github username.",
         name: "username",
         default: "mc4506",
     },
     {
         type: "input",
-        message: "Enter your email address",
+        message: "Enter your email address.",
         default: "mike4506@gmail.com",
         name: "email",
         validate: input => {
@@ -108,7 +108,7 @@ inquirer.prompt(questions).then(function(response){
     // console.log(response);
     const readme = generateREADME.generateREADME(response);
     // console.log(readme);
-    fs.writeFile('READMEtest.md',readme, 'utf8', (error)=>{
+    fs.writeFile('README.md',readme, 'utf8', (error)=>{
         if (error) return console.log(error);
         console.log('File saved...');
     })
