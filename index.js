@@ -51,10 +51,16 @@ const questions = [
     },
     {
         type: "input",
-        message: "Enter the path of the image.",
+        message: "Enter the path of the images, starting with './' (e.g. ./image_directory). If there is more than one file, ensure they are located in the same directory.",
         name: "imagePath",
         when: response => (response.includeImage && response.sections.indexOf("Usage") >= 0),
         validate: path => (path.indexOf('./')===0) ? true : 'Enter a valid path (beginning with ./)',
+    },
+    {
+        type: "input",
+        message: " Enter the filename of the image. If more than one file, separate filenames with a SPACE. (e.g. image.png animation.gif)",
+        name: "filenames",
+        when: response => (response.includeImage),
     },
     {
         type: "input",

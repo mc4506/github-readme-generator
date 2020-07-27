@@ -1,4 +1,4 @@
-# README.md Generator
+# README.md Generator ![https://img.shields.io/github/license/mc4506/github-readme-generator](https://img.shields.io/github/license/mc4506/github-readme-generator)
 
 ## Description
 
@@ -14,15 +14,17 @@ A markdown file will be automatically generated based on user responses. Feel fr
 
 ## Installation
 
-Clone this repo to run on your machine using Node.js
+Clone the repo and use Node.js to run the index.js file
 
 ## Usage
 
-Follow the onscreen prompts
+Follow the onscreen prompts.
 
 ![README.md Generator](./images/image.png)
 
-## License ![https://img.shields.io/github/license/mc4506/github-readme-generator](https://img.shields.io/github/license/mc4506/github-readme-generator)
+![README.md Generator](./images/animation.gif)
+
+## License
 
 Licensed under MIT License.
 
