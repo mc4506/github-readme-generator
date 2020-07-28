@@ -51,7 +51,7 @@ const questions = [
     },
     {
         type: "input",
-        message: "Enter the path of the images, starting with './' (e.g. ./image_directory). If there is more than one file, ensure they are located in the same directory.",
+        message: "Enter the path of the images (e.g. ./image_directory). If there is more than one file, ensure they are located in the same directory.",
         name: "imagePath",
         when: response => (response.includeImage && response.sections.indexOf("Usage") >= 0),
         validate: path => (path.indexOf('./')===0) ? true : 'Enter a valid path (beginning with ./)',
