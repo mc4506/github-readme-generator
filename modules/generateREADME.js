@@ -15,6 +15,9 @@ const generateREADME = (obj) => {
         },
         installation : '## Installation\n\n' + obj.installation + '\n\n',
         usage : '## Usage\n\n' + obj.usage + '\n\n',
+        includeUsageCode : function(){
+            if(obj.includeUsageCode) this.usage += '```\n' + obj.usageCode + '\n```\n';
+        },
         includeImage : function(){
             if(obj.includeImage) {
                 let filenameArr = obj.filenames.split(" ");
@@ -25,6 +28,7 @@ const generateREADME = (obj) => {
             };
         },
         credits : '## Credits\n\n' + obj.credits + '\n\n',
+        contributing : '## Contributing\n\n' + obj.contributing + '\n\n',
         license : `## License\n\n`
                     + 'Licensed under ' + obj.license + ' License.\n\n',
         tests : '## Tests\n' +'\n```\n' + obj.tests+'\n```' + '\n\n',
@@ -33,6 +37,7 @@ const generateREADME = (obj) => {
 
     readme.includeLink();
     readme.writeTOC();
+    readme.includeUsageCode();
     readme.includeImage();
 
     // Assemble Readme into a string
