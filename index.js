@@ -18,6 +18,13 @@ const questions = [
         type: "input",
         message: "Enter Github repo name.",
         name: "repo",
+        validate: input => {
+            const validStr = /^[a-z\d_-]{0,99}$/i;
+            if(validStr.test(input)){
+                return true;
+            }
+            return "Enter a valid repo name";
+        }
     },
     {
         type: "editor",
@@ -112,6 +119,13 @@ const questions = [
         message: "Enter your Github username.",
         name: "username",
         default: "mc4506",
+        validate: input => {
+            const validStr = /^[a-zA-Z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
+            if(validStr.test(input)) {
+                return true;
+            }
+            return "Please enter a valid Github username"
+        }
     },
     {
         type: "input",
