@@ -28,7 +28,7 @@ const questions = [
         type: "checkbox",
         message: "Select the Sections you wish to incude in the README.md",
         name: "sections",
-        choices: ["Installation", "Usage", "Credits", "License", "Tests"],
+        choices: ["Installation", "Usage", "Credits", "License", "Contributing", "Tests"],
         default: ["Installation", "Usage", "License"]
     },
     {
@@ -42,6 +42,18 @@ const questions = [
         message: "Provide instructions and examples for use of this project.",
         name: "usage",
         when: response => (response.sections.indexOf("Usage") >= 0) ? true : false,
+    },
+    {
+        type: "confirm",
+        message: "Do you have any usage code blocks?",
+        name: "includeUsageCode",
+        when: response => (response.sections.indexOf("Usage") >= 0) ? true : false,
+    },
+    {
+        type: "editor",
+        message: "Enter code block",
+        name: "usageCode",
+        when: response => (response.includeUsageCode && response.sections.indexOf("Usage") >= 0) ? true : false,
     },
     {
         type: "confirm",
@@ -68,6 +80,13 @@ const questions = [
         name: "credits",
         default: "none",
         when: response => (response.sections.indexOf("Credits") >= 0) ? true : false,
+    },
+    {
+        type: "input",
+        message: "Enter how others can contribute to this project.",
+        name: "contributing",
+        default: "none",
+        when: response => (response.sections.indexOf("Contributing") >= 0) ? true : false,
     },
     {
         type: "input",
